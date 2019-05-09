@@ -154,7 +154,7 @@ module Bundler
           raise GitNotAllowedError.new(command_with_no_credentials) unless allow?
 
           out, status = SharedHelpers.with_clean_git_env do
-            capture(uri, "git #{command}")
+            capture("git #{command}")
           end
 
           [URICredentialsFilter.credential_filtered_string(out, uri), status]
@@ -238,7 +238,7 @@ module Bundler
           raise GitError, "The git source #{uri} is not yet checked out. Please run `bundle install` before trying to start your application"
         end
 
-        def capture(uri, cmd)
+        def capture(cmd)
           return_value, _, status = Open3.capture3(cmd)
           [return_value, status]
         end
