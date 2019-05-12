@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative "vendored_thor"
+require_relative "shared_helpers"
 
 module Bundler
   class CLI < Thor
